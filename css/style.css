@@ -1,0 +1,17 @@
+html, body {
+    background-color: lightblue;
+    margin: 0;
+    padding: 0;
+}
+
+#doors {
+    max-width: 960px;
+    /* width: 960px; */
+    margin: auto;
+    /* width: 100%; */
+}
+
+#door1, #door2, #door3 {
+    width: 33%;
+    float: left;
+}
