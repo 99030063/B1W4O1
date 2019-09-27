@@ -18,16 +18,13 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max+1 - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
-console.log (doors);
+console.log (doors); //voor testdoeleinden geeft dit de correcte antwoorden van de deuren weer
 
 function pickDoor(userChoice){
     var openNewDoor = true;
     var numberInArray = 0;{
         alert ("Ik laat je nu een deur zien die niet wint.");
     doors.forEach(function(i) {
-        
-        console.log(numberInArray + " Array number");
-        console.log(userChoice + " User choice");
         if(openNewDoor == true) {
             if(i == false){
                 if(userChoice != numberInArray) {
@@ -43,10 +40,8 @@ function pickDoor(userChoice){
                         case 2:
                             document.getElementById("door3").setAttribute('src', "img/goat.png");
                             break;
-
                     }
                     openNewDoor = false;
-
                 }
             }
             numberInArray += 1;
