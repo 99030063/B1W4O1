@@ -3,9 +3,9 @@ var userChoice;
 var winDoor;
 var loseDoor; 
 var swap;
-var door1 = document.getElementsByClassName("door1");
-var door2 = document.getElementsByClassName("door2");
-var door3 = document.getElementsByClassName("door3");
+var door1 = document.getElementsByClassName("1");
+var door2 = document.getElementsByClassName("2");
+var door3 = document.getElementsByClassName("3");
  
 // function getRandomInt(max) { 
 // return Math.floor(Math.random() * Math.floor(max)); 
@@ -23,8 +23,9 @@ console.log (doors); //voor testdoeleinden geeft dit de correcte antwoorden van 
 function pickDoor(userChoice){
     var openNewDoor = true;
     var numberInArray = 0;{
-        alert ("Ik laat je nu een deur zien die niet wint.");
-    doors.forEach(function(i) {
+        alert ("Je hebt gekozen voor deur nummer " +  (eval(userChoice+1)));
+        alert ("Ik zal je nu een deur laten zien waar een geit achter zit.")
+    doors.forEach(function(i) { //line 27 to 49 opent een deur die niet gekozen is door de speler en die niet de auto bevat
         if(openNewDoor == true) {
             if(i == false){
                 if(userChoice != numberInArray) {
@@ -49,3 +50,4 @@ function pickDoor(userChoice){
     });
 }
 }
+
