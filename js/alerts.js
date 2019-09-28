@@ -15,3 +15,7 @@ var swapAlert5 = "U heeft gekozen voor deur nummer 3, en zoals u ziet is deur nu
 
 //userChoice==3, numberInArray=2
 var swapAlert6 = "U heeft gekozen voor deur nummer 3, en zoals u ziet is deur nummer 2 geen winnende deur." +'\n'+ "U krijgt nu een keuze van mij."+'\n'+"Blijft u bij uw eerste gevoel en eerste keuze, deur nummer 3, of wilt u wisselen naar de andere deur, deur nummer 1"
+
+var swapAccept = "Oké, u heeft gekozen om te wisselen van deur. Laten we kijken of u gewonnen heeft"
+
+var swapDeny = "U wilt dus niet wisselen, oké, laten we kijken of dit de juiste keuze was."
