@@ -15,14 +15,14 @@ var secondChoice;
 var doors = [false, false, false];
 doors[getRandomInt(0,2)] = true;
 
+console.log (doors); //voor testdoeleinden geeft dit de correcte antwoorden van de deuren weer
 //genereerd een willekeurige waarde tussen 0 en 2
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max+1 - min)) + min; //The maximum is exclusive and the minimum is inclusive
-    console.log (doors); //voor testdoeleinden geeft dit de correcte antwoorden van de deuren weer
 }
-
+//eerste keuze van deuren + responses
 function pickDoor(userChoice){
     var openNewDoor = true;
     var numberInArray = 0;{
@@ -95,25 +95,25 @@ function pickDoor(userChoice){
                 setTimeout(function(){alert(swapAlert4)},1500);
             }  
     }
-
-    function swapDoor(secondChoice){
-        console.log(secondChoice)
-        if(secondChoice==userChoice){
-            alert(swapDeny)
-            doors.forEach(function(index){
-                if(openLastDoor==true){
-                    if(index=false){  
-                       console.log("geit")
-                    }else if(index==true){
-                        console.log ("Auto")
-                    }
-                }
-                openLastDoor==false;       
-            })
-        }else if(secondChoice != userChoice){
-            alert(swapAccept)
-        }
-    }
-
-
 }
+//tweede keer een deur kiezen + responses
+function swapDoor(secondChoice){
+    console.log(secondChoice)
+    if(secondChoice==userChoice){
+        alert(swapDeny)
+        doors.forEach(function(index){
+            if(openLastDoor==true){
+                if(index=false){  
+                    console.log("geit")
+                }else if(index==true){
+                    console.log ("Auto")
+                }
+            }
+            openLastDoor==false;       
+        })
+    }else if(secondChoice != userChoice){
+        alert(swapAccept)
+    }
+}
+//waarom gaat swapDoor altijd naar de else if en waarom skipt het de eerste if ookal is deze van kracht
+
