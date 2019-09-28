@@ -29,17 +29,23 @@ function pickDoor(userChoice){
         if(openNewDoor == true) {
             if(i == false){
                 if(userChoice != numberInArray) {
-                    console.log(numberInArray + " last element");
+                    console.log('deur '+eval(numberInArray+1));
                     // (numberInArray + 1).setAttribute('src='img/goat.png);
                     switch(numberInArray) {
                         case 0:
                             document.getElementById("door1").setAttribute('src', "img/goat.png");
+                            document.getElementById("door1").removeAttribute('onclick');
+                            swap1()
                             break;
                         case 1:
                             document.getElementById("door2").setAttribute('src', "img/goat.png");
+                            document.getElementById("door2").removeAttribute('onclick');
+                            swap2()
                             break;
                         case 2:
                             document.getElementById("door3").setAttribute('src', "img/goat.png");
+                            document.getElementById("door3").removeAttribute('onclick');
+                            swap3()
                             break;
                     }
                     openNewDoor = false;
@@ -48,6 +54,45 @@ function pickDoor(userChoice){
             numberInArray += 1;
         };
     });
-}
-}
+    }
 
+
+    function swap1(){
+        document.getElementById("door2").setAttribute('onclick', 'swapDoor(1)')
+        document.getElementById("door3").setAttribute('onclick', 'swapDoor(2)')
+            if(userChoice==1){
+                console.log("userChoice = "+userChoice)
+                setTimeout(function(){alert(swapAlert3)}, 3000)
+            }else if(userChoice==2){
+                console.log("userChoice = "+userChoice)
+                setTimeout(function(){alert(swapAlert5)}, 3000)
+            }
+    }
+
+    function swap2(){
+        document.getElementById("door1").setAttribute('onclick', 'swapDoor(0)')
+        document.getElementById("door3").setAttribute('onclick', 'swapDoor(2)')
+            if(userChoice==0){
+                console.log("userChoice = "+userChoice);
+                setTimeout(function(){alert(swapAlert1)}, 3000);
+            }else if(userChoice==2){
+                console.log("userChoice = "+userChoice),
+                setTimeout(function(){alert(swapAlert6)}, 3000);
+            }  
+    }
+
+    function swap3(){
+        document.getElementById("door1").setAttribute('onclick', 'swapDoor(0)')
+        document.getElementById("door2").setAttribute('onclick', 'swapDoor(1)')
+            if(userChoice==0){
+                console.log("userChoice = "+userChoice);
+                setTimeout(function(){alert(swapAlert2)},3000);
+            }else if(userChoice==1){
+                console.log("userChoice = "+userChoice),
+                setTimeout(function(){alert(swapAlert4)},3000);
+            }  
+    }
+
+
+
+}
