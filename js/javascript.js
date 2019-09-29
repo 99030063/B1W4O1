@@ -1,12 +1,9 @@
 var pickDoor;
 var swapdoor;
-var userChoice;
+var userChoiceSave;
 var winDoor;
 var loseDoor; 
 var swap;
-var door1 = document.getElementsByClassName("1");
-var door2 = document.getElementsByClassName("2");
-var door3 = document.getElementsByClassName("3");
 var secondChoice;
  
 // function getRandomInt(max) { 
@@ -24,6 +21,7 @@ function getRandomInt(min, max) {
 }
 //eerste keuze van deuren + responses
 function pickDoor(userChoice){
+    userChoiceSave = userChoice;
     var openNewDoor = true;
     var numberInArray = 0;{
         alert ("Je hebt gekozen voor deur nummer " +  (eval(userChoice+1)));
@@ -36,18 +34,18 @@ function pickDoor(userChoice){
                     // (numberInArray + 1).setAttribute('src='img/goat.png);
                     switch(numberInArray) {
                         case 0:
-                            document.getElementById("door1").setAttribute('src', "img/goat.png");
-                            document.getElementById("door1").removeAttribute('onclick');
+                            document.getElementById("1").setAttribute('src', "img/goat.png");
+                            document.getElementById("1").removeAttribute('onclick');
                             swap1()
                             break;
                         case 1:
-                            document.getElementById("door2").setAttribute('src', "img/goat.png");
-                            document.getElementById("door2").removeAttribute('onclick');
+                            document.getElementById("2").setAttribute('src', "img/goat.png");
+                            document.getElementById("2").removeAttribute('onclick');
                             swap2()
                             break;
                         case 2:
-                            document.getElementById("door3").setAttribute('src', "img/goat.png");
-                            document.getElementById("door3").removeAttribute('onclick');
+                            document.getElementById("3").setAttribute('src', "img/goat.png");
+                            document.getElementById("3").removeAttribute('onclick');
                             swap3()
                             break;
                     }
@@ -61,71 +59,85 @@ function pickDoor(userChoice){
 
 
     function swap1(){
-        document.getElementById("door2").setAttribute('onclick', 'swapDoor(1)')
-        document.getElementById("door3").setAttribute('onclick', 'swapDoor(2)')
-            if(userChoice==1){
-                console.log("userChoice = "+userChoice)
-                setTimeout(function(){alert(swapAlert3)}, 1500)
-            }else if(userChoice==2){
-                console.log("userChoice = "+userChoice)
-                setTimeout(function(){alert(swapAlert5)}, 1500)
+        document.getElementById("2").setAttribute('onclick', 'swapDoor(1)')
+        document.getElementById("3").setAttribute('onclick', 'swapDoor(2)')
+            if(userChoiceSave==1){
+                console.log("userChoiceSave = "+userChoiceSave)
+                setTimeout(function(){alert(swapAlert3)}, 500)
+            }else if(userChoiceSave==2){
+                console.log("userChoiceSave = "+userChoiceSave)
+                setTimeout(function(){alert(swapAlert5)}, 500)
             }
     }
 
     function swap2(){
-        document.getElementById("door1").setAttribute('onclick', 'swapDoor(0)')
-        document.getElementById("door3").setAttribute('onclick', 'swapDoor(2)')
-            if(userChoice==0){
-                console.log("userChoice = "+userChoice);
-                setTimeout(function(){alert(swapAlert1)}, 1500);
-            }else if(userChoice==2){
-                console.log("userChoice = "+userChoice),
-                setTimeout(function(){alert(swapAlert6)}, 1500);
+        document.getElementById("1").setAttribute('onclick', 'swapDoor(0)')
+        document.getElementById("3").setAttribute('onclick', 'swapDoor(2)')
+            if(userChoiceSave==0){
+                console.log("userChoiceSave = "+userChoiceSave);
+                setTimeout(function(){alert(swapAlert1)}, 500);
+            }else if(userChoiceSave==2){
+                console.log("userChoiceSave = "+userChoiceSave),
+                setTimeout(function(){alert(swapAlert6)}, 500);
             }  
     }
 
     function swap3(){
-        document.getElementById("door1").setAttribute('onclick', 'swapDoor(0)')
-        document.getElementById("door2").setAttribute('onclick', 'swapDoor(1)')
-            if(userChoice==0){
-                console.log("userChoice = "+userChoice);
-                setTimeout(function(){alert(swapAlert2)},1500);
-            }else if(userChoice==1){
-                console.log("userChoice = "+userChoice),
-                setTimeout(function(){alert(swapAlert4)},1500);
+        document.getElementById("1").setAttribute('onclick', 'swapDoor(0)')
+        document.getElementById("2").setAttribute('onclick', 'swapDoor(1)')
+            if(userChoiceSave==0){
+                console.log("userChoiceSave = "+userChoiceSave);
+                setTimeout(function(){alert(swapAlert2)},500);
+            }else if(userChoiceSave==1){
+                console.log("userChoiceSave = "+userChoiceSave),
+                setTimeout(function(){alert(swapAlert4)},500);
             }  
     }
 }
 //tweede keer een deur kiezen + responses
 function swapDoor(secondChoice){
-    console.log("secondChoice: "+secondChoice)
-    console.log ('userChoice :' + userChoice)
-    if(secondChoice==userChoice){
+    secondChoiceSave=secondChoice
+    console.log("secondChoice: "+secondChoiceSave)
+    console.log ('userChoiceSave :' + userChoiceSave)
+    if(secondChoiceSave==userChoiceSave){
         alert(swapDeny)
-        var openLastDoor = true
-        doors.forEach(function(i){
-            if(openLastDoor==true){
-                if(i=false){  
-                    console.log("geit")
-                }else if(i==true){
-                    console.log ("Auto")
-                }
-            }
-            openLastDoor==false;       
-        })
-    }else if(secondChoice != userChoice){
+        console.log("doors = "+doors[(secondChoiceSave)])
+        if(doors[(secondChoiceSave)]==false){
+            // alert("geit")
+            console.log(secondChoiceSave)
+            document.getElementById(secondChoiceSave+1).setAttribute('src', "img/goat.png");
+            document.getElementsByClassName("door")[0].removeAttribute('onclick')
+            document.getElementsByClassName("door")[1].removeAttribute('onclick')
+            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            setTimeout(function(){alert(lossStick)}, 1000);
+        } else if (doors[(secondChoiceSave)] == true){
+            // alert("auto")
+            console.log(secondChoiceSave)
+            document.getElementById(secondChoiceSave+1).setAttribute('src', "img/car.png");
+            document.getElementsByClassName("door")[0].removeAttribute('onclick')
+            document.getElementsByClassName("door")[1].removeAttribute('onclick')
+            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            setTimeout(function(){alert(winStick)}, 1000);
+        }
+    }else if(secondChoiceSave != userChoiceSave){
         alert(swapAccept)
-        var openLastDoor = true
-        doors.forEach(function(i){
-            if(openLastDoor==true){
-                if(i=false){  
-                    console.log("geit")
-                }else if(i==true){
-                    console.log ("Auto")
-                }
-            }
-            openLastDoor==false;       
-        })   
+        if(doors[(secondChoiceSave)]==false){
+            // alert("geit")
+            console.log(secondChoiceSave)
+            document.getElementById(secondChoiceSave+1).setAttribute('src', "img/goat.png");
+            document.getElementsByClassName("door")[0].removeAttribute('onclick')
+            document.getElementsByClassName("door")[1].removeAttribute('onclick')
+            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            setTimeout(function(){alert(lossSwap)}, 1000);
+        } else if (doors[(secondChoiceSave)] == true){
+            // alert("auto")
+            console.log(secondChoiceSave)
+            document.getElementById(secondChoiceSave+1).setAttribute('src', "img/car.png");
+            document.getElementsByClassName("door")[0].removeAttribute('onclick')
+            document.getElementsByClassName("door")[1].removeAttribute('onclick')
+            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            setTimeout(function(){alert(winSwap)}, 1000);
+        }
     }
 }
 //waarom gaat swapDoor altijd naar de else if en waarom skipt het de eerste if ookal is deze van kracht
