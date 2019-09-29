@@ -98,14 +98,16 @@ function pickDoor(userChoice){
 }
 //tweede keer een deur kiezen + responses
 function swapDoor(secondChoice){
-    console.log(secondChoice)
+    console.log("secondChoice: "+secondChoice)
+    console.log ('userChoice :' + userChoice)
     if(secondChoice==userChoice){
         alert(swapDeny)
-        doors.forEach(function(index){
+        var openLastDoor = true
+        doors.forEach(function(i){
             if(openLastDoor==true){
-                if(index=false){  
+                if(i=false){  
                     console.log("geit")
-                }else if(index==true){
+                }else if(i==true){
                     console.log ("Auto")
                 }
             }
@@ -113,6 +115,17 @@ function swapDoor(secondChoice){
         })
     }else if(secondChoice != userChoice){
         alert(swapAccept)
+        var openLastDoor = true
+        doors.forEach(function(i){
+            if(openLastDoor==true){
+                if(i=false){  
+                    console.log("geit")
+                }else if(i==true){
+                    console.log ("Auto")
+                }
+            }
+            openLastDoor==false;       
+        })   
     }
 }
 //waarom gaat swapDoor altijd naar de else if en waarom skipt het de eerste if ookal is deze van kracht
