@@ -5,7 +5,7 @@ var winDoor;
 var loseDoor; 
 var swap;
 var secondChoice;
- 
+
 // function getRandomInt(max) { 
 // return Math.floor(Math.random() * Math.floor(max)); 
 // }
@@ -19,6 +19,8 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max+1 - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
+document.getElementsByClassName("title-for-game")[0].innerHTML = step1;
+
 //eerste keuze van deuren + responses
 function pickDoor(userChoice){
     userChoiceSave = userChoice;
@@ -64,9 +66,12 @@ function pickDoor(userChoice){
             if(userChoiceSave==1){
                 console.log("userChoiceSave = "+userChoiceSave)
                 setTimeout(function(){alert(swapAlert3)}, 500)
+                document.getElementsByClassName("title-for-game")[0].innerHTML = step2;
             }else if(userChoiceSave==2){
                 console.log("userChoiceSave = "+userChoiceSave)
                 setTimeout(function(){alert(swapAlert5)}, 500)
+                document.getElementsByClassName("title-for-game")[0].innerHTML = step2;
+                // document.getElementsByClassName("")
             }
     }
 
@@ -76,9 +81,11 @@ function pickDoor(userChoice){
             if(userChoiceSave==0){
                 console.log("userChoiceSave = "+userChoiceSave);
                 setTimeout(function(){alert(swapAlert1)}, 500);
+                document.getElementsByClassName("title-for-game")[0].innerHTML = step2;
             }else if(userChoiceSave==2){
                 console.log("userChoiceSave = "+userChoiceSave),
                 setTimeout(function(){alert(swapAlert6)}, 500);
+                document.getElementsByClassName("title-for-game")[0].innerHTML = step2;
             }  
     }
 
@@ -88,9 +95,11 @@ function pickDoor(userChoice){
             if(userChoiceSave==0){
                 console.log("userChoiceSave = "+userChoiceSave);
                 setTimeout(function(){alert(swapAlert2)},500);
+                document.getElementsByClassName("title-for-game")[0].innerHTML = step2;
             }else if(userChoiceSave==1){
                 console.log("userChoiceSave = "+userChoiceSave),
                 setTimeout(function(){alert(swapAlert4)},500);
+                document.getElementsByClassName("title-for-game")[0].innerHTML = step2;
             }  
     }
 }
@@ -106,17 +115,19 @@ function swapDoor(secondChoice){
             // alert("geit")
             console.log(secondChoiceSave)
             document.getElementById(secondChoiceSave+1).setAttribute('src', "img/goat.png");
-            document.getElementsByClassName("door")[0].removeAttribute('onclick')
-            document.getElementsByClassName("door")[1].removeAttribute('onclick')
-            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            document.getElementsByClassName("door")[0].removeAttribute('onclick');
+            document.getElementsByClassName("door")[1].removeAttribute('onclick');
+            document.getElementsByClassName("door")[2].removeAttribute('onclick');
             setTimeout(function(){alert(lossStick)}, 1000);
+            document.getElementsByClassName("title-for-game")[0].innerHTML = loss;
         } else if (doors[(secondChoiceSave)] == true){
             // alert("auto")
             console.log(secondChoiceSave)
             document.getElementById(secondChoiceSave+1).setAttribute('src', "img/car.png");
-            document.getElementsByClassName("door")[0].removeAttribute('onclick')
-            document.getElementsByClassName("door")[1].removeAttribute('onclick')
-            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            document.getElementsByClassName("door")[0].removeAttribute('onclick');
+            document.getElementsByClassName("door")[1].removeAttribute('onclick');
+            document.getElementsByClassName("door")[2].removeAttribute('onclick');
+            document.getElementsByClassName("title-for-game")[0].innerHTML = win;
             setTimeout(function(){alert(winStick)}, 1000);
         }
     }else if(secondChoiceSave != userChoiceSave){
@@ -125,17 +136,19 @@ function swapDoor(secondChoice){
             // alert("geit")
             console.log(secondChoiceSave)
             document.getElementById(secondChoiceSave+1).setAttribute('src', "img/goat.png");
-            document.getElementsByClassName("door")[0].removeAttribute('onclick')
-            document.getElementsByClassName("door")[1].removeAttribute('onclick')
-            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            document.getElementsByClassName("door")[0].removeAttribute('onclick');
+            document.getElementsByClassName("door")[1].removeAttribute('onclick');
+            document.getElementsByClassName("door")[2].removeAttribute('onclick');
+            document.getElementsByClassName("title-for-game")[0].innerHTML = loss;
             setTimeout(function(){alert(lossSwap)}, 1000);
         } else if (doors[(secondChoiceSave)] == true){
             // alert("auto")
             console.log(secondChoiceSave)
             document.getElementById(secondChoiceSave+1).setAttribute('src', "img/car.png");
-            document.getElementsByClassName("door")[0].removeAttribute('onclick')
-            document.getElementsByClassName("door")[1].removeAttribute('onclick')
-            document.getElementsByClassName("door")[2].removeAttribute('onclick')
+            document.getElementsByClassName("door")[0].removeAttribute('onclick');
+            document.getElementsByClassName("door")[1].removeAttribute('onclick');
+            document.getElementsByClassName("door")[2].removeAttribute('onclick');
+            document.getElementsByClassName("title-for-game")[0].innerHTML = win;
             setTimeout(function(){alert(winSwap)}, 1000);
         }
     }

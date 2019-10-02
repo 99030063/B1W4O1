@@ -21,11 +21,18 @@
     user-select: none;
     font-family: 'Raleway', sans-serif;
 
+
+}
+
+#doorContainer{
+    width: 100%;
+    background-image: url("../img/background.png");
+
 }
 
 #doors {
     display: flex;
-    max-width: 960px;
+    max-width: 1077px;
     margin: auto;
     -khtml-user-select: none;
     -o-user-select: none;

@@ -34,3 +34,10 @@ var winStick = "Uw eerste ingeving was de juiste. Gefeliciteerd met uw nieuwe au
 //gebruiker verliest na niet wisselen
 var lossStick = "Aw, das jammer, uw eerste keuze was dus toch niet de beste keuze. Bedankt voor het spelen"
 
+var step1 = "kies een deur"
+
+var step2 = "Wilt u wisselen of blijft u bij uw eerste keuze?"
+
+var win = "Gefeliciteerd!"
+
+var loss = "Helaas"
